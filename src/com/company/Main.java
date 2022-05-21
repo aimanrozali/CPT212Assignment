@@ -49,7 +49,7 @@ public class Main {
         //InverseSort iv = new InverseSort();
         //iv.ImportWord();
 
-        while(selection != 4)
+        while(selection != 5)
         {
             switch(selection = menu())
             {
@@ -65,7 +65,11 @@ public class Main {
                          IS.ImportWord();
                          IS.insertionSort();
                          break;
-                case 4 : break;
+                case 4 : RadixSort RS = new RadixSort();
+                         RS.ImportWord();
+                         RS.radixSort();
+                         break;
+                case 5 : break;
             }
         }
 

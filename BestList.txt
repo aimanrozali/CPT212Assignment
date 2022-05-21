@@ -20,6 +20,8 @@
 -n't
 .ac.uk
 .co.uk
+FALSE
+TRUE
 a
 a
 a
@@ -46643,7 +46645,6 @@ falmer
 falmer
 falmouth
 false
-FALSE
 falsehood
 falsehood
 falsehoods
@@ -129622,7 +129623,6 @@ trudgill
 trudging
 trudi
 trudy
-TRUE
 true-blue
 true-blues
 true-life
