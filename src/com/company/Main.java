@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+
+// Main Class Starts
 public class Main {
 
 
@@ -23,6 +25,7 @@ public class Main {
         System.out.println("==============================================");
         System.out.println("Choose which sort algorithm you want to use to sort the word list ( 1-4 ) : ");
         int flag = 0;
+        // Prompt User To Select
         while(flag != 1)
         {
             selection = cin.nextInt();
@@ -42,6 +45,7 @@ public class Main {
 
     }
 
+    // Selection Menu For Type Sort To Be Implemented
     public static void main(String[] args) throws IOException {
 
         int selection = 0;
