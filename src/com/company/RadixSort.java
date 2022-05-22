@@ -32,25 +32,29 @@ public class RadixSort extends Words {
 
         // Initialized buckets according to Extended ASCII index
         final int BUCKETS = 256;
+        epoch++; // incrementing POC by 1
 
         ArrayList<String>[] wordsByLength = new ArrayList[maxLen + 1];
         ArrayList<String>[] buckets = new ArrayList[BUCKETS];
 
-        epoch+=2;   // incrementing POC by 2
+        epoch+=3;   // incrementing POC by 3
 
-        epoch++;    // incrementing POC by 1
+        epoch+=2;    // incrementing POC by 2
 
         // in search of elements with the most array value
+        epoch++; // int i = 1
         for (int i = 0; i < wordsByLength.length; i++) {
+            epoch+=3;//incrementing POC by 3
             wordsByLength[i] = new ArrayList<>();
-            epoch+=4;  // incrementing POC by 4
+            epoch+=2;// incrementing POC by 2
         }
 
         epoch++;    // incrementing POC by 1
         // assigning array to buckets
         for (int i = 0; i < BUCKETS; i++) {
+            epoch += 3; // incrementing POC by 3
             buckets[i] = new ArrayList<>();
-            epoch+=4;   // incrementing POC by 4
+            epoch+=2;   // incrementing POC by 2
         }
 
         // finding the length of strings
@@ -70,10 +74,12 @@ public class RadixSort extends Words {
         }
 
         int startingIndex = arr.length;
-        epoch+=3;   // incrementing POC by 3
+        epoch++;   // incrementing POC by 1
+        epoch += 2; //incrementing POC by 2
         for (int pos = maxLen - 1; pos >= 0; pos--) {
+            epoch += 3; //incrementing POC by 3
             startingIndex -= wordsByLength[pos + 1].size();
-            epoch+=6;   // incrementing POC by 6
+            epoch+=4;   // incrementing POC by 4
 
             for (int i = startingIndex; i < arr.length; i++) {
                 buckets[arr[i].charAt(pos)].add(arr[i]);
