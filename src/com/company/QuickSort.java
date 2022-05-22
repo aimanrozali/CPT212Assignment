@@ -10,7 +10,7 @@ class QuickSort extends Words {
     public void QuickSort() throws IOException {
         String[] WordList = getWords().toArray(new String[0]);
         System.out.println("Starting the Quick Sort algorithm ...");
-        quickSort(WordList, 0, WordList.length - 1, OperationsCounter);
+        int operationCounter =+ quickSort(WordList, 0, WordList.length - 1, OperationsCounter);
         System.out.println("The Words List has been sorted using Quick Sort, now writing it into a text file ...");
         FileWriter writer = new FileWriter("quickSorted.txt");
         for (int x = 0; x < WordList.length; x++) {
@@ -18,12 +18,12 @@ class QuickSort extends Words {
         }
         writer.close();
         System.out.println("The Sorted Words List is now in quickSorted.txt file");
-        System.out.println("Primitive Operation =" + OperationsCounter);
+        System.out.println("Primitive Operation =" + operationCounter);
         promptEnterKey();
         clearScreen();
     }
 
-    public void quickSort(String[] WordList, int lowerindex, int higherindex, int OperationsCounter)
+    public int quickSort(String[] WordList, int lowerindex, int higherindex, int OperationsCounter)
             throws IOException {
 
         int i = lowerindex; // low index
@@ -68,11 +68,13 @@ class QuickSort extends Words {
         }
         OperationsCounter++;//Entrance comparison
         if (lowerindex < j) {
-            quickSort(WordList, lowerindex, j, OperationsCounter);
+            OperationsCounter=+quickSort(WordList, lowerindex, j, OperationsCounter);
         }
         OperationsCounter++;//Entrance comparison
         if (i < higherindex) {
-            quickSort(WordList, i, higherindex, OperationsCounter);
+            OperationsCounter=+quickSort(WordList, i, higherindex, OperationsCounter);
         }
+
+        return OperationsCounter;
     }
 }
