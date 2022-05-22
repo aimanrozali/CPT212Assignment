@@ -13,20 +13,22 @@ class InsertionSort extends Words {
 
         System.out.println("Starting the Insertion Sort algorithm ...");
 
+        OperationsCounter++; //int j
         for (int j = 1; j < WordList.length; j++) {
-            OperationsCounter += 2; // POC incremented by 2
+            OperationsCounter += 3; // POC incremented by 3
             String key = WordList[j];
             int i = j - 1;
-            OperationsCounter += 2; // POC incremented by 2
+            OperationsCounter += 4; // POC incremented by 4
 
             // elements of array that are greater than key is moved one position to the right from initial position
             while ((i > -1) && (WordList[i].compareToIgnoreCase(key) > 0)) {
+                OperationsCounter += 3;
                 WordList[i + 1] = WordList[i];
                 i--;
                 OperationsCounter += 4; // POC incremented by 4
             }
             WordList[i + 1] = key;
-            OperationsCounter++;    // incrementation of POC
+            OperationsCounter+= 3;    // POC incremented by 3
         }
 
         System.out.println("The Words List has been sorted using Insertion Sort, now writing it into a text file ...");
