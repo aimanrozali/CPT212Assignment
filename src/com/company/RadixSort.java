@@ -29,6 +29,8 @@ public class RadixSort extends Words {
 
     // placing of elements in a sorted order
     public static void sort(String[] arr, int maxLen, long epoch) throws IOException {
+
+        // Initialized buckets according to Extended ASCII index
         final int BUCKETS = 256;
 
         ArrayList<String>[] wordsByLength = new ArrayList[maxLen + 1];
