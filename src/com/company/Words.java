@@ -9,15 +9,17 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.*;
 
+// to get list of words that user wants to sort
 class Words {
 
     private List<String> listOfWords = new ArrayList<String>();
     private int primCounter = 0;
 
+    // searching list of words
     public void ImportWord() throws FileNotFoundException {
         List<String> words = new ArrayList<String>();
         File myFile = new File(
-                "C:\\Users\\Aiman\\Desktop\\Bachelor Of Computer Science (Hons)\\CPT212\\CPT212Assignment\\WorstList.txt");
+                "C:\\Users\\User\\OneDrive - Universiti Sains Malaysia\\Desktop\\SEM 4\\CPT212\\ASSIGNMENT 1\\Aiman's GIT\\CPT212Assignment\\AverageList.txt");
         Scanner sc = new Scanner(myFile);
 
         while (sc.hasNextLine()) {
@@ -29,6 +31,7 @@ class Words {
 
     }
 
+    // retrieving list of words
     public List<String> getWords() {
         return listOfWords;
     }
