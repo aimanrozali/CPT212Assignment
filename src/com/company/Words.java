@@ -16,11 +16,36 @@ class Words {
     private int primCounter = 0;
 
     // searching list of words
-    public void ImportWord() throws FileNotFoundException {
+    public void ImportWord(int sel) throws FileNotFoundException {
         List<String> words = new ArrayList<String>();
-        File myFile = new File(
-                "C:\\Users\\User\\OneDrive - Universiti Sains Malaysia\\Desktop\\SEM 4\\CPT212\\ASSIGNMENT 1\\Aiman's GIT\\CPT212Assignment\\AverageList.txt");
+
+        String path = "";
+
+        switch (sel)
+        {
+            case 1: path = "C:\\Users\\Aiman\\Desktop\\Bachelor Of Computer Science (Hons)\\CPT212\\CPT212Assignment\\BestList.txt";
+                    System.out.println("Using Sorted Word File...");
+                    break;
+            case 2: path = "C:\\Users\\Aiman\\Desktop\\Bachelor Of Computer Science (Hons)\\CPT212\\CPT212Assignment\\AverageList.txt";
+                    System.out.println("Using Unsorted Word File...");
+                    break;
+            case 3: path = "C:\\Users\\Aiman\\Desktop\\Bachelor Of Computer Science (Hons)\\CPT212\\CPT212Assignment\\WorstList.txt";
+                    System.out.println("Using Reverse Sorted Word File...");
+                    break;
+            case 4: path = "C:\\Users\\Aiman\\Desktop\\Bachelor Of Computer Science (Hons)\\CPT212\\CPT212Assignment\\RadixBestCase.txt";
+                    System.out.println("Using Radix Best Case Word File...");
+                    break;
+            case 5: path = "C:\\Users\\Aiman\\Desktop\\Bachelor Of Computer Science (Hons)\\CPT212\\CPT212Assignment\\RadixWorstCase.txt";
+                    System.out.println("Using Radix Worst Case Word File...");
+                    break;
+
+            default:
+                    path = "C:\\Users\\Aiman\\Desktop\\Bachelor Of Computer Science (Hons)\\CPT212\\CPT212Assignment\\AverageList.txt";
+        }
+
+        File myFile = new File(path);
         Scanner sc = new Scanner(myFile);
+
 
         while (sc.hasNextLine()) {
             words.add(sc.nextLine());

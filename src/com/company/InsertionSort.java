@@ -41,8 +41,7 @@ class InsertionSort extends Words {
         writer.close();
         System.out.println("The Sorted Words List is now in insertionSorted.txt file");
         System.out.println("Primitive Operation =" + OperationsCounter);
-        promptEnterKey();
-        clearScreen();
+
 
     }
 

@@ -19,8 +19,7 @@ class QuickSort extends Words {
         writer.close();
         System.out.println("The Sorted Words List is now in quickSorted.txt file");
         System.out.println("Primitive Operation =" + operationCounter);
-        promptEnterKey();
-        clearScreen();
+
     }
 
     public int quickSort(String[] WordList, int lowerindex, int higherindex, int OperationsCounter)

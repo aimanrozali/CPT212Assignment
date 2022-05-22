@@ -19,12 +19,8 @@ public class RadixSort extends Words {
         epoch++;    // incrementing POC by 1
         System.out.println(maxLen);
 
-        long start, end;
-
-        start = System.currentTimeMillis();
         sort(WordList,maxLen,epoch);
-        end = System.currentTimeMillis();
-        System.out.println("Elapsed: " + (end - start));
+
     }
 
     // placing of elements in a sorted order
@@ -34,8 +30,10 @@ public class RadixSort extends Words {
         final int BUCKETS = 256;
         epoch++; // incrementing POC by 1
 
-        ArrayList<String>[] wordsByLength = new ArrayList[maxLen + 1];
+        ArrayList<String>[] wordsPass = new ArrayList[maxLen + 1];
         ArrayList<String>[] buckets = new ArrayList[BUCKETS];
+
+        int x = 0;
 
         epoch+=3;   // incrementing POC by 3
 
@@ -43,9 +41,10 @@ public class RadixSort extends Words {
 
         // in search of elements with the most array value
         epoch++; // int i = 1
-        for (int i = 0; i < wordsByLength.length; i++) {
+        //Do
+        for (int i = 0; i < wordsPass.length; i++) {
             epoch+=3;//incrementing POC by 3
-            wordsByLength[i] = new ArrayList<>();
+            wordsPass[i] = new ArrayList<>();
             epoch+=2;// incrementing POC by 2
         }
 
@@ -59,16 +58,16 @@ public class RadixSort extends Words {
 
         // finding the length of strings
         for (String s : arr) {
-            wordsByLength[s.length()].add(s);
+            wordsPass[s.length()].add(s);
             epoch+=3;   // incrementing POC by 3
         }
 
-        int idx = 0;
+
         epoch++;    // incrementing POC by 1
-        for (ArrayList<String> wordList : wordsByLength) {
+        for (ArrayList<String> wordList : wordsPass) {
             epoch += 3; // incrementing POC by 3
             for (String s : wordList) {
-                arr[idx++] = s;
+                arr[x++] = s;
                 epoch+=4;   // incrementing POC by 4
             }
         }
@@ -78,7 +77,7 @@ public class RadixSort extends Words {
         epoch += 2; //incrementing POC by 2
         for (int pos = maxLen - 1; pos >= 0; pos--) {
             epoch += 3; //incrementing POC by 3
-            startingIndex -= wordsByLength[pos + 1].size();
+            startingIndex -= wordsPass[pos + 1].size();
             epoch+=4;   // incrementing POC by 4
 
             for (int i = startingIndex; i < arr.length; i++) {
@@ -86,16 +85,16 @@ public class RadixSort extends Words {
                 epoch+=3;   // incrementing POC by 3
             }
 
-            idx = startingIndex;
+            x = startingIndex;
             epoch+=2;   // incrementing POC by 2
-            for (ArrayList<String> thisBucket : buckets) {
+            for (ArrayList<String> bucket : buckets) {
                 epoch+=4;   // incrementing POC by 4
-                for (String s : thisBucket) {
-                    arr[idx++] = s;
+                for (String s : bucket) {
+                    arr[x++] = s;
                     epoch+=3;   // incrementing POC by 3
                 }
 
-                thisBucket.clear(); // clear buckets
+                bucket.clear(); // clear buckets
             }
         }
 
